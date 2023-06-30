@@ -1,0 +1,36 @@
+/*
+#### Main Stylesheets #####
+*/
+*{
+  box-sizing: border;
+  margin: 0;
+  padding: 0;
+}
+
+@font-face{
+  font-family: 'RobotoRegular';
+  src: local('RobotoRegular'),
+       url(./Pages/Fonts/Roboto-Regular.ttf) format('truetype');                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+}
+@font-face{
+  font-family: 'RobotoMediumItalic';
+  src: local('RobotoMediumItalic'),
+       url(./Pages/Fonts/Roboto-MediumItalic.ttf) format('truetype');                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+}
+@font-face{
+  font-family: 'RobotoThin';
+  src: local('RobotoThin'),
+       url(./Pages/Fonts/Roboto-Thin.ttf) format('truetype');                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+}
+html{
+  scroll-behavior: smooth;
+}
+#root{
+  width: 100%;
+  height: 100%;
+}
+body{
+  font-family: 'RobotoRegular', sans-serif;
+  width: 100%;
+  overflow-x: hidden !important;
+}
