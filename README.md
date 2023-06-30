@@ -1,6 +1,7 @@
 # DAF Tools Web App
 ***
-This is an internship **React/Node** project I'm making at _**DafTech Computer Enginerring**_
+This is an internship **React/Node** fullstack project I'm making at _**DafTech Computer Enginerring**_
+
 A web app that contains pages/tools that are;- 
 * Daily water intake calculator
 * Body mass index calculator
