@@ -53,8 +53,8 @@ const SideBar = () => {
     let classNameList = 'link'
     if(findActive(currentURL) === index) classNameList = 'link active'
       return (
-        <li className='list' key={index} >
-          <Link to={list.path} className={classNameList} onClick={() => closeSidebarOnLinkClick()}>
+        <li className='list' key={index}>
+          <Link to={list.path} className={classNameList}>
             <span className='icon'>{list.icon}</span>
             <span className='name'>{list.name}</span>
           </Link>
