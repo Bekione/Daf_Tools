@@ -1,7 +1,16 @@
+import {Link} from 'react-router-dom'
 
 const Footer = () => {
   return (
-    <div>Footer</div>
+    <div className='page_footer' >
+      <div>
+        <p className='copyright_info'>&copy; 2023 DAF TECH. All rights reserved.</p>
+        <p className='author_link'>
+          Designed by
+          <Link to='https://linked.in/bekione23' target='_blank'>Bereket Kinfe</Link>
+        </p>
+      </div>
+    </div>
   )
 }
 
