@@ -1,0 +1,191 @@
+/*
+######## HEADER STYLES ########
+*/
+/* Variables are declared in index.css file */
+.header{
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    height: var(--header-height);
+    padding-inline: 1rem;
+    -webkit-box-shadow: var(--layered-shadow);
+    box-shadow: var(--layered-shadow);
+    background-color: rgba(255, 255, 255, 0.2);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 9999;
+}
+.header_menu{
+    margin-inline: .4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    width: 40px;
+    cursor: pointer;
+}
+.header_menu .bar{
+    height: 4px;
+    width: 100%;
+    background: var(--clr-primary);
+    border-radius: 100vw;
+    transition: var(--transition-03); 
+}
+.header_menu.active .bar:nth-child(1){
+    width: 80%
+}
+.header_menu.active .bar:nth-child(2){
+    width: 60%
+}
+.header_menu.active .bar:nth-child(3){
+    width: 40%
+}
+.header_logo{
+    width: 150px;
+}
+.header_logo .logo_img{
+    width: 100%;
+    height: auto;
+    cursor: pointer;
+}
+.header_title{
+    flex: 1;
+}
+.header_title .title{
+    margin-inline: auto;
+    text-align: center;
+    font-size: 2.5em;
+    font-weight: thin;
+    color: transparent;
+    width: fit-content;
+    background: -webkit-linear-gradient(45deg, var(--clr-primary-hovr), rgba(5, 221, 250, 0.959));
+    background: linear-gradient(45deg, var(--clr-primary-hovr), rgba(5, 221, 250, 0.959));
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+/*
+######## SIDEBAR STYLES ########
+*/
+
+.sidebar{
+    position: fixed;
+    left: 0;
+    top: var(--header-height);
+    width: var(--sidebar-mini-width);
+    padding: 10px 14px;
+    height: calc(100vh - var(--header-height));
+    background-color: var(--clr-primary);
+    transition: var(--transition-03);
+    overflow: hidden;
+    z-index: 9999;
+    -webkit-box-shadow: var(--layered-right-shadow);
+    box-shadow: var(--layered-right-shadow);
+}
+.sidebar.active{ 
+    width: var(--sidebar-width);
+}
+.sidebar .lists{
+    overflow: hidden;
+}
+.sidebar .lists .list{
+    height: 50px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+.lists .list .icon{
+    min-width: 60px;
+    border-radius: 6px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.list .icon svg{
+    color: var(--clr-secondary);
+    font-size: 1.6em;
+}
+.lists .list .name{
+    font-size: 17px;
+    font-weight: 500;
+    white-space: nowrap;
+    opacity: 0;
+    transition: all .6s ease;
+}
+.sidebar.active .list .name{
+    opacity: 1;
+}
+.list .link{
+    color: var(--clr-secondary);
+    font-size: 1.1em;
+    background-color: transparent;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: var(--transition-03);
+}
+.list .link:hover,
+.list .link.active,
+.list:focus {
+    background: var(--clr-secondary);
+}
+.lists .link:hover .icon svg,
+.lists .link:hover .name,
+.lists .link.active .icon svg,
+.lists .link.active .name{
+    color: var(--clr-primary);
+}
+
+/*
+######## FOOTER STYLES ########
+*/
+
+.page_footer{
+    height: var(--footer-height);
+    width: calc(100% - var(--sidebar-mini-width));
+    margin-left: auto;
+    margin-top: auto;
+}
+.page_footer > div{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding: .3rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: .3rem; 
+}
+.page_footer > div::before{
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    height: 2px;
+    width: 80%;
+    border-radius: 4px;
+    background-color: #a09e9e;
+}
+.page_footer p{
+    font-weight: thin;
+    color: #808080;
+    text-align: center;
+}
+.page_footer p a{
+    color: var(--clr-primary-hovr);
+    text-decoration: none;
+    margin-left: 1ch;
+}
+.page_footer p a:hover{
+    color: var(--clr-primary);
+    text-decoration: underline;
+}
