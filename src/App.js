@@ -15,10 +15,10 @@ const App = () => {
       <SideBar />
       <div>
         <Routes>
-          <Route path='/' component={<Home />}/>
-          <Route path='/health' component={<Health />}/>
-          <Route path='/blooddiet' component={<Diet />}/> 
-          <Route path='/personality' component={<Personality />}/>
+          <Route path='/' element={<Home />}/>
+          <Route path='/health' element={<Health />}/>
+          <Route path='/blooddiet' element={<Diet />}/> 
+          <Route path='/personality' element={<Personality />}/>
         </Routes>
       </div>
       <Footer />

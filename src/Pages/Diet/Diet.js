@@ -1,7 +1,8 @@
+import './style.css'
 
 const Diet = () => {
   return (
-    <div>Diet</div>
+    <div className='page_body'>Diet</div>
   )
 }
 

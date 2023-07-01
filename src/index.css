@@ -59,7 +59,7 @@
 * {
   scrollbar-width: auto;
   scrollbar-color: var(--clr-primary) #ffffff;
-  box-sizing: border;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
 }

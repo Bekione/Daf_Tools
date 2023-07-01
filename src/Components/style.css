@@ -2,6 +2,7 @@
 ######## HEADER STYLES ########
 */
 /* Variables are declared in index.css file */
+
 .header{
     display: flex;
     gap: 1.5rem;
@@ -120,10 +121,10 @@
 .sidebar.active .list .name{
     opacity: 1;
 }
-.list .link{
+.lists .list .link{
     color: var(--clr-secondary);
     font-size: 1.1em;
-    background-color: transparent;
+    background-color: transparent; 
     display: flex;
     align-items: center;
     height: 100%;

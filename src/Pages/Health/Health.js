@@ -1,7 +1,8 @@
+import './style.css'
 
 const Health = () => {
   return (
-    <div>Health</div>
+    <div className='page_body'>Health</div>
   )
 }
   

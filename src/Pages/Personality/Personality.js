@@ -1,7 +1,8 @@
+import './style.css'
 
 const Personality = () => {
   return (
-    <div>Personality</div>
+    <div className='page_body'>Personality</div>
   )
 }
 

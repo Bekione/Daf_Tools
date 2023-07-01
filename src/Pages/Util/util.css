@@ -1,3 +1,13 @@
 /*
 * ######### STYLES SHARED BY ALL PAGES #########
 */
+
+.page_body{
+    min-height: calc(100vh - var(--header-height));
+    width: calc(100% - var(--sidebar-mini-width)) !important;
+    margin-top: var(--header-height);
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
