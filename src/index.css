@@ -1,12 +1,8 @@
 /*
 #### Main Stylesheets #####
 */
-*{
-  box-sizing: border;
-  margin: 0;
-  padding: 0;
-}
 
+/* Page Fonts */
 @font-face{
   font-family: 'RobotoRegular';
   src: local('RobotoRegular'),
@@ -22,15 +18,73 @@
   src: local('RobotoThin'),
        url(./Pages/Fonts/Roboto-Thin.ttf) format('truetype');                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
 }
+:root{
+  /* SIZES*/
+  --header-height: 100px;
+  --sidebar-width: 270px;
+  --sidebar-mini-width: 88px;
+  --footer-height: 65px;
+
+  /* FONTS */
+  --body-font: 'RobotoRegular', sans-serif;
+  --font-header: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+  /* COLORS */
+  --clr-primary: #04344c;
+  --clr-secondary: #58e6f9;
+  --clr-primary-hovr: #04344cee;
+
+  /* BOX SHADOWS */
+ --layered-shadow:
+      0 1px 1px rgba(0, 0, 0, 0.075),
+      0 2px 2px rgba(0, 0, 0, 0.075),
+      0 4px 4px rgba(0, 0, 0, 0.075),
+      0 8px 8px rgba(0, 0, 0, 0.075),
+      0 16px 16px rgba(0, 0, 0, 0.075);
+  --layered-right-shadow: 
+      1px 0 1px rgba(0, 0, 0, 0.08),
+      2px 0 2px rgba(0, 0, 0, 0.08),
+      4px 0 4px rgba(0, 0, 0, 0.08),
+      8px 0 8px rgba(0, 0, 0, 0.08),
+      16px 0 16px rgba(0, 0, 0, 0.08);
+
+
+  /* OTHER VARIABLES*/
+  --transition-02: all .2s ease;
+  --transition-03: all .3s ease;
+}
+
+/* Scrollbar Styles */
+/* Firefox */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: var(--clr-primary) #ffffff;
+  box-sizing: border;
+  margin: 0;
+  padding: 0;
+}
+*::selection{
+  background-color: #04344c9c;
+  color: rgba(255, 255, 255, 0.925)
+}
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 12px; /*For vertical*/
+  height: 10px; /*For horizontal*/
+}
+*::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: var(--clr-primary);
+  border-radius: 30px;
+  border: 3px solid #ffffff;
+}
 html{
   scroll-behavior: smooth;
 }
-#root{
-  width: 100%;
-  height: 100%;
-}
 body{
-  font-family: 'RobotoRegular', sans-serif;
+  font-family: var(--body-font);
   width: 100%;
   overflow-x: hidden !important;
 }
