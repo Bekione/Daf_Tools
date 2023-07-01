@@ -7,7 +7,7 @@ const Footer = () => {
         <p className='copyright_info'>&copy; 2023 DAF TECH. All rights reserved.</p>
         <p className='author_link'>
           Designed by
-          <Link to='https://linked.in/bekione23' target='_blank'>Bereket Kinfe</Link>
+          <Link to='https://www.linkedin.com/in/bereket-kinfe' target='_blank'>Bereket Kinfe</Link>
         </p>
       </div>
     </div>
