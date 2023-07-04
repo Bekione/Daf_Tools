@@ -9,7 +9,7 @@ export const findTitle = (value) => {
     case "/health":
       title="Health Tracker"
     break;
-    case "/diet":
+    case "/blooddiet":
       title = "Food Guide "
     break;
     case "/personality": 
