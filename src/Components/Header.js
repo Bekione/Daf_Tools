@@ -6,14 +6,14 @@ import { useLocation } from 'react-router-dom';
 export const findTitle = (value) => {
   let title = ""
   switch(value){
-    case "/personality": 
-      title = "Personality Predector"
-    break;
     case "/health":
-      title="Water Intake Calculator"
+      title="Health Tracker"
     break;
     case "/diet":
-      title = "Food Recommendation "
+      title = "Food Guide "
+    break;
+    case "/personality": 
+      title = "Age Horscope"
     break;
     default:
       title = "DAF Tools"
@@ -21,13 +21,13 @@ export const findTitle = (value) => {
   return title
 }
 
-const Header = () => {
+const Header = ({toggleSidebar}) => {
   const location = useLocation();
   const currentUrl = location.pathname;
 
   return (
     <div className='header'>
-        <div className='header_menu'>
+        <div className='header_menu' onClick={toggleSidebar}>
           <span className='bar'></span>
           <span className='bar'></span>
           <span className='bar'></span>
