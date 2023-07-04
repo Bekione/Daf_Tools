@@ -45,16 +45,21 @@ const links = [
   }
 ]
 
-const SideBar = () => {
+const SideBar = ({isOpen, setIsOpen}) => {
   const loc = useLocation(); 
   const currentURL = loc.pathname;
-  
+
+  const closeSidebarOnLinkClick = () => {
+    if(window.innerWidth <= 500){
+      setIsOpen(!isOpen)
+    }
+  }
   const listLinks = links.map((list, index) => {
     let classNameList = 'link'
     if(findActive(currentURL) === index) classNameList = 'link active'
       return (
         <li className='list' key={index}>
-          <Link to={list.path} className={classNameList}>
+          <Link to={list.path} className={classNameList} onClick={() => closeSidebarOnLinkClick()}>
             <span className='icon'>{list.icon}</span>
             <span className='name'>{list.name}</span>
           </Link>
@@ -62,7 +67,7 @@ const SideBar = () => {
       )
   }) 
   return (
-    <div className='sidebar'>
+    <div className={isOpen?'sidebar active': 'sidebar'}>
         <ul className='lists'> 
           {listLinks}
         </ul>
