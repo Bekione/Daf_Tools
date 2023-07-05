@@ -4,3 +4,96 @@
 /*
 * ########### Diet PAGE STYLES ###########
 */
+
+.select_wrapper{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    padding: 1.5rem 1rem;
+    border-radius: 6px;
+    border: 1px solid var(--clr-primary);
+    background: rgba(236, 240, 236, 0.75);
+    box-shadow: var(--layered-shadow);
+}
+.select_title{
+    margin-bottom: 1rem;
+}
+.select_title p{
+    font-size: 1.1em;
+    color: var(--clr-primary);
+}
+
+.food_body{
+    padding: 1rem;
+    margin-bottom: 2rem;
+}
+
+/* Info Section Styles*/
+.food_info{
+    padding: 1rem;
+    display: grid;
+    grid-template-columns: 9ch 1fr;
+    grid-auto-rows: minmax(25px, auto);
+    gap: .3rem;
+    align-items: center;
+    width: fit-content;
+    margin: auto;
+}
+.info_title p{
+    vertical-align: middle;
+    white-space: nowrap;
+    text-align: right;
+}
+.info strong{
+    color: var(--clr-primary)
+}
+.result_label{
+    font-size: 1.15em;
+    color: var(--clr-primary);
+    margin: 0 0 .4rem .4rem;
+    display: flex;
+}
+.result_label > code{
+    width: 2.5ch;
+    height: 2.5ch;
+    margin-left: .3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: inherit;
+    font-weight: bold;
+    border-radius: 4px;
+    background: var(--clr-primary);
+    color: #fff;
+}
+
+/* Table styles */
+.table_wrapper{
+    position: relative;
+    width: 80%;
+    margin: auto;
+    margin-block: 2rem;
+    border-radius: 6px;
+    overflow: auto;
+    box-shadow: var(--layered-shadow);
+}
+.empty_msg{
+    font-size: 1.1em;
+    color: rgb(107, 106, 106);
+    text-align: center;
+}
+.column_title{
+    font-size: 1.25em;
+}
+.column_title strong{
+    color: var(--clr-secondary);
+}
+
+.column_title small{
+    font-size: .7em;
+    color: #fff;
+    font-weight: thin;
+}
+
