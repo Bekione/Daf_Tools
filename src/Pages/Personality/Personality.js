@@ -1,12 +1,10 @@
-import React, {useState, useEffect} from 'react' 
+import React, {useState} from 'react' 
 import Output from './Output'
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import Horscope from '../Assets/Horscope.jpg'
-import MobileTitle from '../../Components/MobileTitle'
-import '../../Components/style.css'
 import './style.css'
 
 const Personality = () => {
@@ -37,12 +35,11 @@ const Personality = () => {
     "& .MuiSvgIcon-root": {
       fill: 'var(--clr-primary-hovr)'
     }
-  }   
+  }    
 
   return (
-    <div className='page_body age' data-aos="fade-down" data-aos-duration="700">
+    <div className='page_body age'>
       <div className='page_header age'>
-        <MobileTitle currentUrl={'/age'} classNm={'age'} />
         <img src={Horscope} alt='page header zodiac' className='page_header_image age'/>
         <div className='date_input_wrapper'>
           <div className='date_title'>
