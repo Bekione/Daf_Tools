@@ -7,7 +7,16 @@
     width: calc(100% - var(--sidebar-mini-width)) !important;
     margin-top: var(--header-height);
     margin-left: auto;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+}
+
+.sub_title {
+    margin: auto;
+    font-weight: thin;
+    font-size: 1.7em;
+    color: transparent;
+    text-align: center;
+    width: fit-content;
+    background: linear-gradient(45deg, var(--clr-primary), rgba(5, 221, 250, 0.959));
+    -webkit-background-clip: text;
+    background-clip: text;
 }
