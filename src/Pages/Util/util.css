@@ -9,6 +9,23 @@
     margin-left: auto;
 }
 
+.page_header{
+    width: 100%;
+    height: 300px;
+    position: relative;
+    margin-bottom: -60px;
+}
+.page_header.age{
+    height: 350px;
+}
+.page_header_image{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
+}
+
+
 .sub_title {
     margin: auto;
     font-weight: thin;
