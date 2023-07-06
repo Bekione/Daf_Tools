@@ -61,6 +61,7 @@ const Output = ({dateOfBirth}) => {
                     </li>
                 )
             }
+            return null
         })
     }
   return (
