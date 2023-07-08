@@ -14,10 +14,16 @@
        url(./Pages/Fonts/Roboto-MediumItalic.ttf) format('truetype');                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
 }
 @font-face{
+  font-family: 'RobotoLight';
+  src: local('RobotoLight'),
+       url(./Pages/Fonts/Roboto-Light.ttf) format('truetype');
+}
+@font-face{
   font-family: 'RobotoThin';
   src: local('RobotoThin'),
        url(./Pages/Fonts/Roboto-Thin.ttf) format('truetype');                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
 }
+
 :root{
   /* SIZES*/
   --header-height: 100px;
@@ -27,6 +33,8 @@
 
   /* FONTS */
   --body-font: 'RobotoRegular', sans-serif;
+  --light-font: 'RobotoLight', sans-serif;
+  --thin-font: 'RobotoThin', sans-serif;
   --font-header: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
   /* COLORS */
