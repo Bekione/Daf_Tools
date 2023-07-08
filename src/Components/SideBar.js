@@ -29,17 +29,17 @@ const links = [
     icon: <HomeRoundedIcon />
   },
   {    
-    name: 'Water Intake Calculator', 
+    name: 'Health Tracker', 
     path: '/health',
     icon: <WaterDropRoundedIcon />
   },
   {
-    name: 'Food Recommendation', 
+    name: 'Diet Recommendation', 
     path: '/blooddiet',
     icon: <LocalDiningRoundedIcon />
   },
   {
-    name: 'Personality Predector', 
+    name: 'Age Horscope', 
     path: '/personality',
     icon: <Man4RoundedIcon />
   }
