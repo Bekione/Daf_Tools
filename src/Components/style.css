@@ -67,6 +67,30 @@
     -webkit-background-clip: text;
     background-clip: text;
 }
+.header_link.github_sourcecode{
+    position: fixed;
+    top: 0;
+    right: 2%;
+    padding-inline: .5rem;
+    height: 80px;
+    background-color: var(--clr-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom-left-radius: 100vw;
+    border-bottom-right-radius: 100vw;
+    box-shadow: var(--layered-shadow);
+}
+.github_sourcecode svg{
+    font-size: 2em;
+    fill: var(--clr-secondary);
+}
+.github_sourcecode:hover{
+    background-color: var(--clr-secondary);
+}
+.github_sourcecode:hover svg{
+    fill: var(--clr-primary);
+}
 
 /*
 ######## SIDEBAR STYLES ########

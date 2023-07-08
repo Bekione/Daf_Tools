@@ -1,7 +1,7 @@
-import {Link} from 'react-router-dom'
+import { useLocation, Link } from 'react-router-dom'
 import Logo from '../Pages/Assets/Logo.png'
+import GitHub from '@mui/icons-material/GitHub'
 import './style.css';
-import { useLocation } from 'react-router-dom';
 
 export const findTitle = (value) => {
   let title = ""
@@ -40,6 +40,11 @@ const Header = ({toggleSidebar}) => {
         <div className='header_title '>
             <h2 className='title'>{findTitle(currentUrl)}</h2>
         </div>
+        <Link to='https://github.com/Bekione/Daf_Tools/' target='_blank'>
+          <div className='header_link github_sourcecode'>
+            <GitHub />
+          </div>
+        </Link>
     </div>
   )
 }
