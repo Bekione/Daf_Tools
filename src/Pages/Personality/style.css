@@ -23,13 +23,20 @@
     top: 50%;
     left: 10%;
     transform: translateY(-50%);
-    max-width: 300px;
+    width: 300px;
     padding: 1rem;
     border-radius: 6px;
-    background-color: rgba(255, 255, 255, 0.582);
-    backdrop-filter: blur(5px);
     display: flex;
     flex-direction: column;
+}
+.date_input_wrapper::before{
+    position: absolute;
+    content: '';
+    inset: 0;
+    border-radius: inherit;
+    background-color: rgba(255, 255, 255, 0.582);
+    backdrop-filter: blur(5px);
+    z-index: -1;
 }
 .date_title{
     margin-bottom: 1rem;
@@ -286,4 +293,89 @@ tbody tr:nth-child(odd):hover {
     padding: .3rem;
     padding-top: .65rem;
     padding-bottom: 0;
+}
+
+/* ### Media queries ###*/
+@media only screen and (max-width: 850px){
+    .page_output{
+        width: 95%;
+    }
+    .zodiac_result{
+        flex-direction: column;
+    }
+}
+@media only screen and (max-width: 800px){
+    .date_input_wrapper{
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .result_bottom{
+        flex-direction: column;
+    }
+    .result_list_wrapper{
+        padding-left: 0;
+    }
+    .result_list_wrapper::before{
+        display: none;
+    }
+}
+@media only screen and (max-width: 500px) {
+    .hbd_message{
+        font-size: 3em;
+        padding: 1rem;
+    }
+    .behaviors_table,
+    .behaviors_table caption,
+    .behaviors_table thead,
+    .behaviors_table tbody,
+    .behaviors_table th,
+    .behaviors_table td,
+    .behaviors_table tr {
+      display: block;
+    }
+    .behaviors_table {
+        overflow: hidden;
+    }
+    .behaviors_table thead tr {
+      position: absolute;
+      top: -9999px;
+      left: -9999px;
+    }
+    .behaviors_table caption{
+        padding: .5rem;
+        background-color: var(--clr-bg);
+    }
+    .behaviors_table tr {
+      border-bottom: 1px solid #ccc;
+    }
+    .behaviors_table tr:nth-child(5) > td:last-of-type{
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
+    }
+    .behaviors_table td {
+      text-align: left;
+      border-bottom: 1px solid #ccc;
+      position: relative;
+      padding-left: 60%;
+    }
+    .behaviors_table td:before {
+      content: attr(data-label);
+      position: absolute;
+      left: 15px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-weight: bold;
+      color: var(--clr-primary);
+    }
+
+    .zodiac_result.row2{
+        padding-inline: 1rem;
+    }
+}
+
+@media only screen and (max-width: 300px){
+    .date_input_wrapper{
+        width: 90%;
+    }
 }

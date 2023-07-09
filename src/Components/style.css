@@ -214,3 +214,44 @@
     color: var(--clr-primary);
     text-decoration: underline;
 }
+
+/*
+######## MEDIA QUERY ########
+*/
+
+@media only screen and (max-width: 800px){
+    .header_title .title{
+        font-size: 2em;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .header_title .title{
+        font-size: 2em;
+    }
+    .sidebar{
+        width: var(--sidebar-width) !important;
+        left: -100% !important;
+    }
+    .sidebar.active{
+        left: 0 !important;
+    }
+    .sidebar.active .name{
+        opacity: 1 !important;
+    }
+    .page_footer{
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 500px){
+    .header{
+        gap: 0;
+    }
+    .header_logo{
+        margin: auto;
+    }
+    .header_title {
+        display: none;
+    }
+}

@@ -37,3 +37,18 @@
     -webkit-background-clip: text;
     background-clip: text;
 }
+
+/** UTIL MEDIA QUERIES **/
+@media only screen and (max-width: 600px){
+    .page_body{
+        width: 100% !important;
+        padding: 1rem;
+    }
+    .page_body.food_wrapper,
+    .page_body.age,
+    .page_body.error,
+    .page_body.home_wrapper{
+        padding: 0 !important;
+    }
+
+}

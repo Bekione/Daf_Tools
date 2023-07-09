@@ -13,11 +13,12 @@
     padding-top: 2rem;
 }
 
-/* Input Form*/
+/* Input Form styles */
 .form{
     flex: 1.2;
     display: flex;
     flex-direction: column;
+    margin-left: 1rem;
 }
 .form_header{
     padding: 0 4rem;
@@ -270,4 +271,53 @@
 }
 .tip_list p{
     line-height: 1.4em;
+}
+
+/* Health Page Media Queries */
+@media only screen and (max-width: 800px){
+    .form{
+        margin-left: 0;
+    }
+    .health_body{
+        padding-top: 0;
+        flex-direction: column-reverse;
+        gap: 2rem;
+    }
+    .body_image{
+        width: 80%;;
+        flex: 0;
+    }
+}
+
+@media only screen and (max-width: 600px){
+    .body_image{
+        width: 90%;
+    }
+    .form_header{
+        padding-inline: 2rem;
+    }
+}
+@media only screen and (max-width: 500px){
+    .body_image img{
+        min-width: 90%;
+    }
+    .input{
+        font-size: 1.4em;
+    }
+    .output_header{
+        margin-bottom: .5rem;
+    }
+    .output_body{
+        padding: 0;
+    }
+    .output_row{
+        margin-bottom: .35rem;
+    }
+    .description{
+        margin-top: 1rem;
+    }
+    .description ul{
+        padding-inline: .25rem;
+    }
+   
 }
