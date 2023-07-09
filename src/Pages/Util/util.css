@@ -25,7 +25,11 @@
     mask-image: linear-gradient(to bottom, rgba(0,0,0,1), rgba(0,0,0,0));
 }
 
-
+.mobile_page_title{
+    padding: 1rem;
+    display: none;
+}
+.mobile_page_title .title,
 .sub_title {
     margin: auto;
     font-weight: thin;
@@ -36,6 +40,14 @@
     background: linear-gradient(45deg, var(--clr-primary), rgba(5, 221, 250, 0.959));
     -webkit-background-clip: text;
     background-clip: text;
+}
+.mobile_page_title.diet,
+.mobile_page_title.horscope{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 0;
+    z-index: 99;
 }
 
 /** UTIL MEDIA QUERIES **/
@@ -50,5 +62,14 @@
     .page_body.home_wrapper{
         padding: 0 !important;
     }
+}
 
+@media only screen and (max-width: 500px){
+    .mobile_page_title{
+        display: block;
+    }
+    .mobile_page_title.diet .title,
+    .mobile_page_title.horscope .title{
+        white-space: nowrap;
+    }
 }

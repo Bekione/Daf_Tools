@@ -2,6 +2,7 @@ import { useState} from 'react'
 import FoodImg from '../Assets/BloodFood.png'
 import Info from './Info'
 import Table from './Table'
+import MobileTitle from '../../Components/MobileTitle'
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -33,6 +34,7 @@ const Diet = () => {
   return (
     <div className='page_body food_wrapper'>
       <div className='food_header page_header'>
+      <MobileTitle currentUrl={'/blooddiet'} classNm={'diet'} />
         <img src={FoodImg} alt='Food and blood type' className='page_header_image food' />
         <div className='select_wrapper'>
           <div className='select_title'>
