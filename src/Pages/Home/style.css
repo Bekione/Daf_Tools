@@ -10,34 +10,19 @@
     width: 100%;
     position: relative;
 }
-.navigators{
-    position: absolute;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    padding-inline: calc(30px + .85rem);
-    margin: auto;
-    top: 50%;
-    transform: translateY(-50%);
+.swiper-button-prev,
+.swiper-button-next{
+    color: var(--clr-primary);
+    mix-blend-mode: screen;
     z-index: 99;
 }
-.navigators .btn{
-    border: none;
-    outline: none;
-    padding: 1rem .5rem;
-    border-radius: 8px;
-    background: rgba(0,0,0,.3);
-    cursor: pointer;
-    transition: var(--transition-03);
-}
-.navigators .btn svg{
-    fill: #fff;
-    font-size: 2.5em;
-}
-.navigators .btn:hover{
-    background: rgba(0,0,0,.5);
+.swiper-button-prev:hover,
+.swiper-button-next:hover{
+    color: var(--clr-secondary);
+    mix-blend-mode: screen;
 }
 .swiper {
+    box-sizing: border-box;
     width: 100%;
     height: 100%;
     padding: 30px !important;
@@ -46,25 +31,24 @@
     margin-right: auto;
 }
 .swiper-slide {
+    background-color: var(--clr-primary);
     width: 100%;
     height: 100%;
-
+    border-radius: 8px;
     /* Center slide text vertically */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .swiper-slide img{
-    width: auto;
+    width: 100%;
     height: 100%;
     display: block;
     object-fit: contain;
     margin: auto;
-    border-radius: 8px;
+    border-radius: inherit;
     box-shadow: var(--layered-shadow);
 }
-
-
 
 /* About section styles */
 .tools_about{
@@ -134,4 +118,6 @@
 .about_description .submit_btn{
     width: fit-content;
 }
+
+
 
