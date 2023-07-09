@@ -6,7 +6,7 @@ import Footer from './Components/Footer'
 import Home from './Pages/Home/Home'
 import Health from './Pages/Health/Health'
 import Diet from './Pages/Diet/Diet'
-import Personality from './Pages/Personality/Personality'
+import Horscope from './Pages/Horscope/Horscope'
 import './App.css'
 
 const App = () => {
@@ -25,7 +25,7 @@ const App = () => {
           <Route path='/' element={<Home />}/>
           <Route path='/health' element={<Health />}/>
           <Route path='/blooddiet' element={<Diet />}/> 
-          <Route path='/personality' element={<Personality />}/>
+          <Route path='/horscope' element={<Horscope />}/>
         </Routes>
       </div>
       <Footer />

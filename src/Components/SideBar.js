@@ -13,7 +13,7 @@ const findActive = (value) => {
     case "/blooddiet":
       active = 2
     break;
-    case "/personality": 
+    case "/horscope": 
       active = 3
     break;
     default:
@@ -40,7 +40,7 @@ const links = [
   },
   {
     name: 'Age Horscope', 
-    path: '/personality',
+    path: '/horscope',
     icon: <Man4RoundedIcon />
   }
 ]

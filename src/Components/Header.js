@@ -12,7 +12,7 @@ export const findTitle = (value) => {
     case "/blooddiet":
       title = "Food Guide "
     break;
-    case "/personality": 
+    case "/horscope": 
       title = "Age Horscope"
     break;
     default:

@@ -1,5 +1,6 @@
 import React, {useState} from 'react' 
 import Output from './Output'
+import MobileTitle from '../../Components/MobileTitle'
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -40,6 +41,7 @@ const Personality = () => {
   return (
     <div className='page_body age'>
       <div className='page_header age'>
+      <MobileTitle currentUrl={'/horscope'} classNm={'horscope'} />
         <img src={Horscope} alt='page header zodiac' className='page_header_image age'/>
         <div className='date_input_wrapper'>
           <div className='date_title'>
