@@ -1,15 +1,22 @@
-import React, {useState} from 'react' 
+import React, {useState, useEffect} from 'react' 
 import Output from './Output'
 import MobileTitle from '../../Components/MobileTitle'
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import AOS from "aos";
 import Horscope from '../Assets/Horscope.jpg'
 import './style.css'
+import "aos/dist/aos.css";
 
 const Personality = () => {
   const [dateOfBirth, setDateOfBirth] = useState('')
+
+  useEffect(() => {
+    AOS.init();
+    AOS.refresh();
+  }, [])
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -39,7 +46,7 @@ const Personality = () => {
   }    
 
   return (
-    <div className='page_body age'>
+    <div className='page_body age' data-aos="fade-down" data-aos-duration="700">
       <div className='page_header age'>
       <MobileTitle currentUrl={'/horscope'} classNm={'horscope'} />
         <img src={Horscope} alt='page header zodiac' className='page_header_image age'/>

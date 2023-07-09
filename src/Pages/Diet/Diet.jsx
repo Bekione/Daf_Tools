@@ -32,7 +32,7 @@ const Diet = () => {
   }   
 
   return (
-    <div className='page_body food_wrapper'>
+    <div className='page_body food_wrapper' data-aos="fade-down" data-aos-duration="700">
       <div className='food_header page_header'>
       <MobileTitle currentUrl={'/blooddiet'} classNm={'diet'} />
         <img src={FoodImg} alt='Food and blood type' className='page_header_image food' />
@@ -64,7 +64,7 @@ const Diet = () => {
       </div>
       <div className='food_body' >
         <Info />
-        <div className='recommendation_result'>
+        <div className='recommendation_result' data-aos="fade-up" data-aos-duration="900">
           <div className='table_wrapper'>
             {
               (blood !== '') ? 

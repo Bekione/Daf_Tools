@@ -1,7 +1,7 @@
 const Description = () => {
     const hydrationTips = [
       {
-        tip_title: "Drink water throughout the Night:",
+        tip_title: "Drink water throughout the day:",
         tip: "Don't wait until you're thirsty to drink water. Aim to drink small amounts of water throughout the day."
       },
       {
@@ -58,11 +58,11 @@ const Description = () => {
    
     return (
       <>
-        <div className='description'> 
+        <div className='description' data-aos="fade-up" data-aos-duration="700"> 
           <h2 className='sub_title'>Stay Hydrated</h2>
           <ul>{hydrationLists}</ul>
         </div>
-        <div className='description'> 
+        <div className='description' data-aos="fade-up" data-aos-duration="700"> 
           <h2 className='sub_title'>Stay In Shape</h2>
           <ul>{bmiLists}</ul>
         </div>
