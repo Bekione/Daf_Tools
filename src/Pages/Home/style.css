@@ -13,13 +13,18 @@
 .swiper-button-prev,
 .swiper-button-next{
     color: var(--clr-primary);
-    mix-blend-mode: screen;
+    mix-blend-mode: multiply;
     z-index: 99;
 }
 .swiper-button-prev:hover,
 .swiper-button-next:hover{
     color: var(--clr-secondary);
-    mix-blend-mode: screen;
+}
+.swiper-pagination-bullet{
+    background-color: var(--clr-primary-hovr)
+}
+.swiper-pagination-bullet-active{
+    background-color: var(--clr-secondary) !important;
 }
 .swiper {
     box-sizing: border-box;
@@ -112,12 +117,33 @@
 }
 .about_row .description_title{
     font-weight: bold;
-    font-size: 1.3em;
+    font-size: 1.1em;
     color: var(--clr-primary);
 }
 .about_description .submit_btn{
     width: fit-content;
 }
 
+/* Home Page Media Queries */
+@media only screen and (max-width: 501px){
+    .slider_wrapper{
+        height: 300px;
+    }
+    .swiper{
+        padding: 0 !important;
+    }
+    .swiper-pagination-bullet{
+        background-color: rgba(251,251,251,.85)
+    }
+    .swiper-slide{
+        border-radius: 0;
+    }
 
+    .tools_about{
+        width: 95%;
+    }
+    .about_mobile_img{
+        max-width: 165px;
+    }
+} 
 
