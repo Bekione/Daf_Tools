@@ -11,6 +11,12 @@ const Health = () => {
   useEffect(() => {
     AOS.init()
     AOS.refresh()
+
+    document.title = 'Daf Tools | Health'
+
+    return () => {
+      document.title = 'Daf Tools'
+    }
   }, [])
 
   return (

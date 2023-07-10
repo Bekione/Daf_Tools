@@ -16,6 +16,12 @@ const Personality = () => {
   useEffect(() => {
     AOS.init();
     AOS.refresh();
+
+    document.title = 'Daf Tools | Age Horscope'
+
+    return () => {
+      document.title = 'Daf Tools'
+    }
   }, [])
 
   const handleSubmit = (e) => {

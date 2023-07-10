@@ -1,4 +1,4 @@
-import { useState} from 'react'
+import { useState, useEffect } from 'react'
 import FoodImg from '../Assets/BloodFood.png'
 import Info from './Info'
 import Table from './Table'
@@ -8,11 +8,21 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 import './style.css'
 
 const Diet = () => {
   const [blood, setBlood] = useState('');
- 
+
+  useEffect(() => {
+    document.title = 'Daf Tools | Diet Guide'
+
+    return () => {
+      document.title = 'Daf Tools'
+    }
+  }, [])
+  
   const handleChange = (val) => {
     setBlood(val)  
   }
