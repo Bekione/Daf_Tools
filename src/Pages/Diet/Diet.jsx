@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import FoodImg from '../Assets/BloodFood.png'
+import imageFetcher, {getImagePath} from '../Hook/imageFetcher'
 import Info from './Info'
 import Table from './Table'
 import MobileTitle from '../../Components/MobileTitle'
@@ -14,8 +14,13 @@ import './style.css'
 
 const Diet = () => {
   const [blood, setBlood] = useState('');
+  const images = imageFetcher('images')
+  const foodImg = getImagePath(images, 'BloodFood')
 
   useEffect(() => {
+    AOS.init()
+    AOS.refresh()
+    
     document.title = 'Daf Tools | Diet Guide'
 
     return () => {
@@ -45,7 +50,7 @@ const Diet = () => {
     <div className='page_body food_wrapper' data-aos="fade-down" data-aos-duration="700">
       <div className='food_header page_header'>
       <MobileTitle currentUrl={'/blooddiet'} classNm={'diet'} />
-        <img src={FoodImg} alt='Food and blood type' className='page_header_image food' />
+        <img src={foodImg} alt='Food and blood type' className='page_header_image food' />
         <div className='select_wrapper'>
           <div className='select_title'>
             <p>Please select your blood type</p>

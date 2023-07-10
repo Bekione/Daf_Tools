@@ -1,17 +1,19 @@
 import React, {useState, useEffect} from 'react' 
 import Output from './Output'
 import MobileTitle from '../../Components/MobileTitle'
-import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
-import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
-import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DatePicker } from '@mui/x-date-pickers/DatePicker';
-import AOS from "aos";
-import Horscope from '../Assets/Horscope.jpg'
+import { DemoContainer } from '@mui/x-date-pickers/internals/demo'
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
+import { DatePicker } from '@mui/x-date-pickers/DatePicker'
+import imageFetcher, {getImagePath} from '../Hook/imageFetcher'
+import AOS from "aos"
 import './style.css'
-import "aos/dist/aos.css";
+import "aos/dist/aos.css"
 
 const Personality = () => {
   const [dateOfBirth, setDateOfBirth] = useState('')
+  const images = imageFetcher('images')
+  const horscope = getImagePath(images, 'Horscope')
 
   useEffect(() => {
     AOS.init();
@@ -55,7 +57,7 @@ const Personality = () => {
     <div className='page_body age' data-aos="fade-down" data-aos-duration="700">
       <div className='page_header age'>
       <MobileTitle currentUrl={'/horscope'} classNm={'horscope'} />
-        <img src={Horscope} alt='page header zodiac' className='page_header_image age'/>
+        <img src={horscope} alt='page header zodiac' className='page_header_image age'/>
         <div className='date_input_wrapper'>
           <div className='date_title'>
             <p>Please enter your date of birth</p>

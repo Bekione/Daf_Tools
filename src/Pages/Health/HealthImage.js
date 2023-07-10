@@ -1,10 +1,12 @@
-import Blob from '../Assets/blobanimation.svg'
-import People from '../Assets/People.png'
+import imageFetcher, {getImagePath} from '../Hook/imageFetcher'
 
 const HealthImage = () => {
+  const images = imageFetcher('images')
+  const blob = getImagePath(images, 'blobanimation')
+  const people = getImagePath(images, 'People')
   return (
-    <div className='body_image' style={{backgroundImage: `url(${Blob})`}} data-aos="fade-up" data-aos-duration="900" data-aos-delay="200">
-      <img src={People} alt="People drinking water" />
+    <div className='body_image' style={{backgroundImage: `url(${blob})`}} data-aos="fade-up" data-aos-duration="900" data-aos-delay="200">
+      <img src={people} alt="People drinking water" />
     </div>
   )
 }

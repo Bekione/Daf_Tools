@@ -1,9 +1,7 @@
 import {Link} from 'react-router-dom'
-import Jar from '../Assets/WaterJar.png'
-import Bmi from '../Assets/BMI.png'
-import Status from '../Assets/Status.png'
+import imageFetcher, {getImagePath} from '../Hook/imageFetcher'
 
-var msg = ""
+let msg = ""
 
 const calcWaterIntake = (weight) => {
   let liter = (weight * 0.033).toFixed(2)
@@ -30,7 +28,6 @@ const calcBMI = (height, weight) => {
     msg = 'Make sure you give the correct input'
   }
 
-
   return bmi
 }
 const setMessage = () => {
@@ -38,7 +35,11 @@ const setMessage = () => {
 }
 
 const Output = ({setW, setH, height, weight}) => {
-  
+  const images = imageFetcher('images')
+  const jar = getImagePath(images, 'WaterJar')
+  const bmi = getImagePath(images, 'BMI')
+  const status = getImagePath(images, 'Status')
+
   const back = () => { 
     //Code to make the input state to it's initial values
     setW(50)
@@ -55,19 +56,19 @@ const Output = ({setW, setH, height, weight}) => {
       <div className='output_body'>
         <div className='output_row'>
           <div className="output_icon">
-            <img src={Jar} alt='Water jar' />
+            <img src={jar} alt='Water jar' />
           </div>
           <div className='output_text'>Your recommended daily water intake is {calcWaterIntake(weight)} Liters or {(calcWaterIntake(weight) * 4).toFixed(0)} glass of water.</div>
         </div>
         <div className='output_row'>
           <div className="output_icon">
-            <img src={Bmi} alt='Water jar' />
+            <img src={bmi} alt='Water jar' />
           </div>
           <div className='output_text'>Your Body Mass Index is {calcBMI(height, weight)}.</div>
         </div>
         <div className='output_row'>
           <div className="output_icon">
-            <img src={Status} alt='Water jar' />
+            <img src={status} alt='Water jar' />
           </div>
           <div className='output_text'>{setMessage()}<Link to='https://www.doctor.com' target='_blank' rel='noopener' className='result_link'>Get help</Link></div>
         </div>
