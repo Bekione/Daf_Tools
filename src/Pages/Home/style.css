@@ -10,6 +10,16 @@
     width: 100%;
     position: relative;
 }
+.slider_wrapper::before{
+    position: absolute;
+    content: '';
+    inset: 0;
+    background-image: url(../Assets/Logo.png);
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: .5;
+    z-index: -1;
+}
 .swiper-button-prev,
 .swiper-button-next{
     color: var(--clr-primary);
