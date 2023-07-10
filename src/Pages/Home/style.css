@@ -19,6 +19,7 @@
 .swiper-button-prev:hover,
 .swiper-button-next:hover{
     color: var(--clr-secondary);
+    mix-blend-mode: normal;
 }
 .swiper-pagination-bullet{
     background-color: var(--clr-primary-hovr)
