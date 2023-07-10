@@ -15,7 +15,7 @@ export default function ImageFetcher(path){
         }
  
         fetchData()
-    }, [])
+    }, [path])
 
     return images
 }

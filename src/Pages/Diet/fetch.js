@@ -1,6 +1,22 @@
-import  lists from './recomendationList'
+import { useEffect, useState } from 'react';
+import api from '../../api'
 
-export default function findFoodByBlood(blood){
+export default function FindFoodByBlood(blood){
+    const [lists, setLists] = useState([])
+    useEffect(() => {
+        const fetchData = async () => {
+            try{
+                const response = await api.get('/api/foodlists')
+                setLists(response.data)
+            }
+            catch(error){
+                console.error(error)
+            }
+        }
+
+        fetchData()
+    }, [])
+
     const blood_type ="group "+ blood;
     const result = {good:[],bad:[],normal:[]};
     for(let i in lists){
