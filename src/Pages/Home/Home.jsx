@@ -1,17 +1,12 @@
 import {useState, useEffect} from 'react'
 import ImageSlider from './ImageSlider'
 import About from './About'
-import AOS from 'aos'
-import 'aos/dist/aos.css'
 import  './style.css';
 
 const Home = () => {
   const [isDesktop, setIsDesktop] = useState(true)
- 
+
   useEffect(() => {
-    AOS.init()
-    AOS.refresh()
-    
     const checkScreen = () => {
       if(window.innerWidth < 700){
         setIsDesktop(false)
@@ -29,9 +24,9 @@ const Home = () => {
 
   return (
     <div className='home_wrapper page_body'>
-      <div className='slider_wrapper'>
+      {/* <div className='slider_wrapper'>
         <ImageSlider isDesktop={isDesktop} />
-      </div>
+      </div> */}
       <About />
     </div>
   )
