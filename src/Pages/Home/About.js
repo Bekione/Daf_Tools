@@ -23,28 +23,33 @@ const About = () => {
 
   return (
     <div className='tools_about'>
-        <h2 className='sub_title'>The Tools</h2>
-        <div className='about_rows'>
-          {
-            aboutData.map((data, index) => {
-              return(
-                <div className={`about_row ${data.name}`} key={index}>
-                  <HoverableImage imgPath={data.imgPath}/>
-                  <div className='about_description'>
-                    <p>
-                        <span className='description_title'>{findTitle(data.link)}:</span> &nbsp;
-                        {data.description}
-                    </p>          
-                    <Link to={data.link}>
-                      <button className='submit_btn' >See More</button>
-                    </Link>
+      { aboutData && (
+        <>
+          <h2 className='sub_title'>The Tools</h2>
+          <div className='about_rows'>
+            {
+              aboutData.map((data, index) => {
+                return(
+                  <div className={`about_row ${data.name}`} key={index}>
+                    <HoverableImage imgPath={data.imgPath}/>
+                    <div className='about_description'>
+                      <p>
+                          <span className='description_title'>{findTitle(data.link)}:</span> &nbsp;
+                          {data.description}
+                      </p>          
+                      <Link to={data.link}>
+                        <button className='submit_btn' >See More</button>
+                      </Link>
+                    </div>
                   </div>
-                </div>
-              )
-            })
-          }
-        </div>
-      </div>
+                )
+              })
+            }
+          </div>
+        </>
+      )
+      }
+    </div>
   )
 }
 
