@@ -64,7 +64,9 @@
 
 /* Scrollbar Styles */
 /* Firefox */
-* {
+*,
+*::before,
+*::after{
   scrollbar-width: auto;
   scrollbar-color: var(--clr-primary) #ffffff;
   box-sizing: border-box;
