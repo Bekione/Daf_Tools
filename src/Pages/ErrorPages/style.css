@@ -1,0 +1,33 @@
+@import url(../Util/util.css);
+
+/* 
+ ####### Error Pages Styles #######
+*/
+
+.daf_error_message_wrapper{
+    margin-inline: auto;
+    margin-top: 5rem;
+    max-width: 400px;
+    padding: 1rem;
+    border: 1px solid #bebdbd;
+    background-color: #eee;
+    box-shadow: var(--layered-shadow);
+}
+.error_message_description p{
+    line-height: 1.5em;
+    font-family: monospace;
+}
+.error_message_title{
+    text-align: center;
+    margin-bottom: .75rem;
+    color: var(--clr-primary);
+}
+.error_message_code{
+    color: red;
+}
+
+@media only screen and (max-width: 500px){
+    .daf_error_message_wrapper{
+        margin-inline: 2rem;
+    }
+}
