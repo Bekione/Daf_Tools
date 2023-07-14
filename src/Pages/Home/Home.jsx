@@ -1,32 +1,14 @@
-import {useState, useEffect} from 'react'
 import ImageSlider from './ImageSlider'
 import About from './About'
 import  './style.css';
 
 const Home = () => {
-  const [isDesktop, setIsDesktop] = useState(true)
-
-  useEffect(() => {
-    const checkScreen = () => {
-      if(window.innerWidth < 700){
-        setIsDesktop(false)
-      } else setIsDesktop(true)
-    }
-
-    window.addEventListener('load', () => checkScreen());
-    window.addEventListener('resize', () => checkScreen());
-
-    return () => {
-      window.removeEventListener('load', () => checkScreen())
-      window.removeEventListener('resize', () => checkScreen())
-    }
-  }, [])
 
   return (
     <div className='home_wrapper page_body'>
-      {/* <div className='slider_wrapper'>
-        <ImageSlider isDesktop={isDesktop} />
-      </div> */}
+      <div className='slider_wrapper'>
+        <ImageSlider />
+      </div>
       <About />
     </div>
   )
