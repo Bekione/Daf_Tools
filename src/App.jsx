@@ -1,40 +1,81 @@
-import {useState} from 'react'
-import {Routes, Route} from 'react-router-dom'
-import { QueryClient, QueryClientProvider } from 'react-query'
-import Header from './Components/Header'
-import SideBar from './Components/SideBar'
-import Footer from './Components/Footer'
-import Home from './Pages/Home/Home'
-import Health from './Pages/Health/Health'
-import Diet from './Pages/Diet/Diet'
-import Horscope from './Pages/Horscope/Horscope'
-import './App.css'
+import { useState, useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
+import { QueryClient, QueryClientProvider } from 'react-query';
+import Header from './Components/Header';
+import SideBar from './Components/SideBar';
+import Footer from './Components/Footer';
+import Home from './Pages/Home/Home';
+import Health from './Pages/Health/Health';
+import Diet from './Pages/Diet/Diet';
+import Horscope from './Pages/Horscope/Horscope';
+import NotFound from './Pages/ErrorPages/NotFound';
+import './App.css';
+import api from './api';
+
+export const fetchPageImages = async () => {
+  try{
+    const imageResponse = await api.get('/api/asset/images')
+    const carouselImageResponse = await api.get('/api/asset/carouselimages')
+    return {imageResponse: imageResponse.data, carouselImageResponse: carouselImageResponse.data}
+  }
+  catch(error){
+    if(error.name === 'AxiosError'){
+      throw new Error(error)
+    } else {
+      throw new Error('Something went wrong')
+    }
+  }
+}
+
+export const fetchTextData = async () => {
+  try{
+    const hydrationResponse = await api.get('/api/hydrationtips')
+    const bmiResponse = await api.get('/api/bmitips')
+
+    return { hydrationTips: hydrationResponse.data, bmiTips: bmiResponse.data }
+  }
+  catch(error){
+    if(error.name === 'AxiosError'){
+      throw new Error(error)
+    } else {
+      throw new Error('Something went wrong')
+    }
+  }
+}
 
 const App = () => {
-  const queryClient = new QueryClient()
+  const queryClient = new QueryClient();
+
+  useEffect(() => {
+    queryClient.prefetchQuery('Page_Images', fetchPageImages);
+    queryClient.prefetchQuery('Page_Text_Data', fetchTextData)
+    
+  }, []);
+
   const [isOpen, setIsOpen] = useState(false);
   const toggleSidebar = () => {
-    setIsOpen(!isOpen)
+    setIsOpen(!isOpen);
     document.querySelector('.header_menu').classList.toggle('active');
-  }
-  
-  return ( 
+  };
+
+  return (
     <QueryClientProvider client={queryClient}>
-      <div className='daf_tools_app'>
+      <div className="daf_tools_app">
         <Header toggleSidebar={toggleSidebar} />
         <SideBar isOpen={isOpen} setIsOpen={setIsOpen} />
         <div>
           <Routes>
-            <Route path='/' element={<Home />}/>
-            <Route path='/health' element={<Health />}/>
-            <Route path='/blooddiet' element={<Diet />}/> 
-            <Route path='/horscope' element={<Horscope />}/>
+            <Route exact path="/" element={<Home />} />
+            <Route path="/health" element={<Health />} />
+            <Route path="/blooddiet" element={<Diet />} />
+            <Route path="/horscope" element={<Horscope />} />
+            <Route path="/*" element={<NotFound />} />
           </Routes>
         </div>
         <Footer />
-      </div>  
+      </div>
     </QueryClientProvider>
   );
-}
+};
 
 export default App;
