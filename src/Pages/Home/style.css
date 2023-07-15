@@ -153,6 +153,10 @@
         left: 50%;
         transform: translate(-50%, -50%);
     }
+    .swiper-button-prev,
+    .swiper-button-next{
+        --swiper-navigation-size: 34px;
+    }
     .swiper-pagination-bullet{
         background-color: rgba(251,251,251,.85)
     }
