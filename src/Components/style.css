@@ -60,6 +60,7 @@
     text-align: center;
     font-size: 2.5em;
     font-weight: thin;
+    font-family: 'Gugi-Regular', sans-serif;
     color: transparent;
     width: fit-content;
     background: -webkit-linear-gradient(45deg, var(--clr-primary-hovr), rgba(5, 221, 250, 0.959));

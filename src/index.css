@@ -4,6 +4,11 @@
 
 /* Page Fonts */
 @font-face{
+  font-family: 'Gugi-Regular';
+  src: local('Gugi-Regular'),
+       url(./Pages/Fonts/Gugi-Regular.ttf) format('truetype')
+}
+@font-face{
   font-family: 'RobotoRegular';
   src: local('RobotoRegular'),
        url(./Pages/Fonts/Roboto-Regular.ttf) format('truetype');                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
