@@ -259,12 +259,21 @@
         padding: 0;
         width: 40px;
         height: 40px;
-        border-radius: 100vw;
+        border-radius: 50%;
         position: static;
+        background: none;
+        box-shadow: none;
     }
     .github_sourcecode svg{
         font-size: 40px;
         width: 40px;
         height: 40px;
+        fill: var(--clr-primary);
+    }
+    .github_sourcecode:hover{
+        background: none;
+    }
+    .github_sourcecode:hover svg{
+        fill: var(--clr-secondary);
     }
 }
