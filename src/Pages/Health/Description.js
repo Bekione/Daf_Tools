@@ -1,34 +1,51 @@
-import {useEffect, useState} from 'react'
+import { useEffect } from 'react'
+import { useQuery, useQueryClient } from 'react-query'
 import api from '../../api'
-
+import Loader from '../../Components/Loader'
+import FetchError from '../ErrorPages/FetchError'
+import { fetchTextData } from '../../App'
 const Description = () => {
-  const [hydrationTips, setHydrationTips] = useState([])
-  const [bmiTips, setBmiTips] = useState([])
+  const queryClient = useQueryClient()
   useEffect(() => {
-    const fetchData = async () => {
-      try{
-        const hydrationResponse = await api.get('/api/hydrationtips')
-        const bmiResponse = await api.get('/api/bmitips')
-
-        setHydrationTips(hydrationResponse.data)
-        setBmiTips(bmiResponse.data)
-      }
-      catch(error){
-        console.error(error)
-      } 
-    }
-
-    fetchData()
+    queryClient.prefetchQuery('Page_Text_Data', fetchTextData)
   }, [])
+
+  // const fetchData = async () => {
+  //   try{
+  //     const hydrationResponse = await api.get('/api/hydrationtips')
+  //     const bmiResponse = await api.get('/api/bmitips')
+
+  //     return { hydrationTips: hydrationResponse.data, bmiTips: bmiResponse.data }
+  //   }
+  //   catch(error){
+  //     if(error.name === 'AxiosError'){
+  //       throw new Error(error)
+  //     } else {
+  //       throw new Error('Something went wrong')
+  //     }
+  //   }
+  // }
+  const { data: healthInfos, isLoading, error: fetchError } = useQuery("Page_Text_Data", {
+    staleTime: Infinity,
+    cacheTime: Infinity,
+  })
+
+  if (fetchError) {
+    return <FetchError errorMsg={fetchError.message} />
+  }
+
+  if (isLoading) {
+    return <Loader />
+  }
   
-  const hydrationLists = hydrationTips.map((tip, index) => {
+  const hydrationLists = healthInfos.hydrationTips.map((tip, index) => {
     return(
       <li className='tip_list' key={index}>
         <p><span className='tip_title'>{tip.tip_title}</span>{tip.tip}</p>
       </li>
     )
   })
-  const bmiLists = bmiTips.map((tip, index) => {
+  const bmiLists = healthInfos.bmiTips.map((tip, index) => {
     return(
       <li className='tip_list' key={index}>
         <p><span className='tip_title'>{tip.tip_title}</span>{tip.tip}</p>

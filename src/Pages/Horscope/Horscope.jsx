@@ -1,23 +1,25 @@
-import React, {useState, useEffect} from 'react' 
+import { useState, useEffect } from 'react' 
+import { useQuery, useQueryClient } from 'react-query'
 import Output from './Output'
 import MobileTitle from '../../Components/MobileTitle'
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
-import imageFetcher, {getImagePath} from '../Hook/imageFetcher'
-import AOS from "aos"
+import { getImagePath } from '../Hook/imageFetcher'
+import Loader from '../../Components/Loader'
+import FetchError from '../ErrorPages/FetchError'
+import { fetchPageImages } from '../../App'
+// import AOS from "aos"
+//import "aos/dist/aos.css"
 import './style.css'
-import "aos/dist/aos.css"
 
 const Personality = () => {
   const [dateOfBirth, setDateOfBirth] = useState('')
-  const images = imageFetcher('images')
-  const horscope = getImagePath(images, 'Horscope')
 
   useEffect(() => {
-    AOS.init();
-    AOS.refresh();
+    // AOS.init();
+    // AOS.refresh();
 
     document.title = 'Daf Tools | Age Horscope'
 
@@ -25,6 +27,24 @@ const Personality = () => {
       document.title = 'Daf Tools'
     }
   }, [])
+
+  const queryClient = useQueryClient()
+  useEffect(() => {
+    queryClient.prefetchQuery('Page_Images', fetchPageImages)
+  }, [])
+
+  const {data: headerHorscopeImage, isLoading, error} = useQuery('Page_Images', {
+    staleTime: Infinity,
+    cacheTime: Infinity,
+  })
+
+  if(error){
+    return <FetchError errorMsg={error.message}/>
+  }
+
+  if(isLoading){
+    return <Loader />
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -54,10 +74,10 @@ const Personality = () => {
   }    
 
   return (
-    <div className='page_body age' data-aos="fade-down" data-aos-duration="700">
+    <div className='page_body age'>
       <div className='page_header age'>
       <MobileTitle currentUrl={'/horscope'} classNm={'horscope'} />
-        <img src={horscope} alt='page header zodiac' className='page_header_image age'/>
+        <img src={getImagePath(headerHorscopeImage.imageResponse, 'Horscope')} alt='page header zodiac' className='page_header_image age'/>
         <div className='date_input_wrapper'>
           <div className='date_title'>
             <p>Please enter your date of birth</p>

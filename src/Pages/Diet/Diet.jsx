@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
-import imageFetcher, {getImagePath} from '../Hook/imageFetcher'
+import { useQuery, useQueryClient } from 'react-query'
+import {getImagePath} from '../Hook/imageFetcher'
 import Info from './Info'
 import Table from './Table'
 import MobileTitle from '../../Components/MobileTitle'
@@ -7,27 +8,45 @@ import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
-import AOS from 'aos'
-import 'aos/dist/aos.css'
+import Select from '@mui/material/Select'
+import Loader from '../../Components/Loader'
+import FetchError from '../ErrorPages/FetchError'
+import { fetchPageImages } from '../../App'
+// import AOS from 'aos'
+// import 'aos/dist/aos.css'
 import './style.css'
 
 const Diet = () => {
-  const [blood, setBlood] = useState('');
-  const images = imageFetcher('images')
-  const foodImg = getImagePath(images, 'BloodFood')
-
+  const [blood, setBlood] = useState('')
+  
   useEffect(() => {
-    AOS.init()
-    AOS.refresh()
-    
+    // AOS.init()
+    // AOS.refresh()
+
     document.title = 'Daf Tools | Diet Guide'
 
     return () => {
       document.title = 'Daf Tools'
     }
   }, [])
-  
+
+  const queryClient = useQueryClient()
+  useEffect(() => {
+    queryClient.prefetchQuery('Page_Images', fetchPageImages)
+  }, [])
+
+  const {data: headerFoodImage, isLoading, error} = useQuery('Page_Images', {
+    staleTime: Infinity,
+    cacheTime: Infinity,
+  })
+
+  if(error){
+    return <FetchError errorMsg={error.message} />
+  }
+
+  if(isLoading) {
+    return <Loader />
+  }
   const handleChange = (val) => {
     setBlood(val)  
   }
@@ -47,10 +66,10 @@ const Diet = () => {
   }   
 
   return (
-    <div className='page_body food_wrapper' data-aos="fade-down" data-aos-duration="700">
+    <div className='page_body food_wrapper'>
       <div className='food_header page_header'>
       <MobileTitle currentUrl={'/blooddiet'} classNm={'diet'} />
-        <img src={foodImg} alt='Food and blood type' className='page_header_image food' />
+        <img src={getImagePath(headerFoodImage.imageResponse, 'BloodFood')} alt='Food and blood type' className='page_header_image food' />
         <div className='select_wrapper'>
           <div className='select_title'>
             <p>Please select your blood type</p>
@@ -79,7 +98,7 @@ const Diet = () => {
       </div>
       <div className='food_body' >
         <Info />
-        <div className='recommendation_result' data-aos="fade-up" data-aos-duration="900">
+        <div className='recommendation_result'>
           <div className='table_wrapper'>
             {
               (blood !== '') ? 
