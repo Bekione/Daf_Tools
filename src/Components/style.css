@@ -83,7 +83,7 @@
     box-shadow: var(--layered-shadow);
 }
 .github_sourcecode svg{
-    font-size: 2em;
+    font-size: 32px;
     fill: var(--clr-secondary);
 }
 .github_sourcecode:hover{
@@ -254,5 +254,17 @@
     }
     .header_title {
         display: none;
+    }
+    .header_link.github_sourcecode{
+        padding: 0;
+        width: 40px;
+        height: 40px;
+        border-radius: 100vw;
+        position: static;
+    }
+    .github_sourcecode svg{
+        font-size: 40px;
+        width: 40px;
+        height: 40px;
     }
 }
