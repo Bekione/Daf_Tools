@@ -43,8 +43,9 @@ export const fetchTextData = async () => {
   }
 }
 
+const queryClient = new QueryClient() //By making quryclient outside the App component App rerendering doesn't clear cached data
+
 const App = () => {
-  const queryClient = new QueryClient();
 
   useEffect(() => {
     queryClient.prefetchQuery('Page_Images', fetchPageImages);
