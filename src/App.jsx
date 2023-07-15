@@ -54,16 +54,27 @@ const App = () => {
   }, []);
 
   const [isOpen, setIsOpen] = useState(false);
+  const [showOverlay, setShowOverlay] = useState(false)
+  const humMenu = document.querySelector('.header_menu')
   const toggleSidebar = () => {
-    setIsOpen(!isOpen);
-    document.querySelector('.header_menu').classList.toggle('active');
-  };
+    if(!isOpen){
+      setIsOpen(true)
+      setTimeout(() => {
+        setShowOverlay(true);
+      }, 200)
+      humMenu.classList.add('active')
+    } else {
+      setIsOpen(false)
+      setShowOverlay(false)
+      humMenu.classList.remove('active')
+    }
+  }
 
   return (
     <QueryClientProvider client={queryClient}>
       <div className="daf_tools_app">
         <Header toggleSidebar={toggleSidebar} />
-        <SideBar isOpen={isOpen} setIsOpen={setIsOpen} />
+        <SideBar isOpen={isOpen} setIsOpen={setIsOpen} toggleSidebar={toggleSidebar} showOverlay={showOverlay} setShowOverlay={setShowOverlay}/>
         <div>
           <Routes>
             <Route exact path="/" element={<Home />} />
