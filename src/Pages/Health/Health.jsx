@@ -1,16 +1,18 @@
-import {useEffect} from 'react'
+import { useEffect } from 'react'
+import { useQuery } from 'react-query'
 import Form from './Form'
 import HealthImage from './HealthImage'
 import Description from './Description'
 import MobileTitle from '../../Components/MobileTitle'
-import AOS from 'aos'
-import 'aos/dist/aos.css'
+import { fetchPageImages } from '../../App'
+// import AOS from 'aos'
+// import 'aos/dist/aos.css'
 import './style.css'
 
 const Health = () => {
   useEffect(() => {
-    AOS.init()
-    AOS.refresh()
+    // AOS.init()
+    // AOS.refresh()
 
     document.title = 'Daf Tools | Health'
 
@@ -19,12 +21,14 @@ const Health = () => {
     }
   }, [])
 
+  const { isLoading: imageLoading } = useQuery('Page_Images', fetchPageImages);
+
   return (
-    <div className="health_wrapper page_body" data-aos="fade-down" data-aos-duration="700">
+    <div className="health_wrapper page_body">
       <MobileTitle currentUrl={'/health'} />
       <div className='health_body_wrapper'>
         <div className='health_body'>
-          <Form />
+          {!imageLoading ? <Form /> : <></>}
           <HealthImage />
         </div>
       </div>
