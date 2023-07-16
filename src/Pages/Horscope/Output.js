@@ -93,63 +93,63 @@ const Output = ({dateOfBirth}) => {
             )}
             </div>
             <div className='zodiac_result_wrapper'>
-                {zodiacData && (
-                    <>
-                        <div className='title_row' data-aos="fade-up" data-aos-duration="500" >
-                            <h2 className='title'>You are {zodiacData.name}&nbsp;{zodiacUiData[zodiacData.id - 1].emoji}</h2>
+            {zodiacData && (
+                <>
+                    <div className='title_row' data-aos="fade-up" data-aos-duration="500" >
+                        <h2 className='title'>You are {zodiacData.name}&nbsp;{zodiacUiData[zodiacData.id - 1].emoji}</h2>
+                    </div>
+                    <div className='zodiac_result row1'>
+                        <div className='result_image' data-aos="fade-right" data-aos-duration="500"data-aos-delay="200">
+                            <img src={signImages[(zodiacData.id - 1)].path} alt="your zodiac sign" />
                         </div>
-                        <div className='zodiac_result row1'>
-                            <div className='result_image' data-aos="fade-right" data-aos-duration="500"data-aos-delay="200">
-                                <img src={signImages[(zodiacData.id - 1)].path} alt="your zodiac sign" />
-                            </div>   
-                            <div className='result_info' data-aos="fade-left" data-aos-duration="500" data-aos-delay="100">
-                                <div className='behaviors'>
-                                    <table className='behaviors_table'>
-                                        <caption style={{ '--clr-bg': `${zodiacUiData[zodiacData.id -1].dark_color}`}}>Your common behaviors</caption>
-                                        <thead style={{ '--clr-bg': `${zodiacUiData[zodiacData.id -1].dark_color}`}}>
-                                            <tr>
-                                                <th>
-                                                    <h3>+ve</h3>
-                                                </th>
-                                                <th>
-                                                    <h3>-ve</h3>
-                                                </th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        {
-                                            zodiacData.traits.good.map((data, index) => {
-                                                return(
-                                                    <tr key={index}>
-                                                        <td data-label="+ve">{data}</td>
-                                                        <td data-label="-ve">{zodiacData.traits.bad[index]}</td>
-                                                    </tr>
-                                                )
-                                            })
-                                        }
-                                        </tbody>
-                                    </table>
-                                </div>
+                        <div className='result_info' data-aos="fade-left" data-aos-duration="500" data-aos-delay="100">
+                            <div className='behaviors'>
+                                <table className='behaviors_table'>
+                                    <caption style={{ '--clr-bg': `${zodiacUiData[zodiacData.id -1].dark_color}`}}>Your common behaviors</caption>
+                                    <thead style={{ '--clr-bg': `${zodiacUiData[zodiacData.id -1].dark_color}`}}>
+                                        <tr>
+                                            <th>
+                                                <h3>+ve</h3>
+                                            </th>
+                                            <th>
+                                                <h3>-ve</h3>
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    {
+                                        zodiacData.traits.good.map((data, index) => {
+                                            return(
+                                                <tr key={index}>
+                                                    <td data-label="+ve">{data}</td>
+                                                    <td data-label="-ve">{zodiacData.traits.bad[index]}</td>
+                                                </tr>
+                                            )
+                                        })
+                                    }
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
-                        <div className='zodiac_result row2'>
-                            <div className='result_header' data-aos="fade-left" data-aos-duration="500">
-                                <span></span>
+                    </div>
+                    <div className='zodiac_result row2'>
+                        <div className='result_header' data-aos="fade-left" data-aos-duration="500">
+                            <span></span>
+                        </div>
+                        <div className='result_bottom'>
+                            <div className='result_list_wrapper' data-aos="fade-left" data-aos-duration="500" data-aos-delay="200">
+                                <ul className='result_list'>{zodiacLists}</ul>
                             </div>
-                            <div className='result_bottom'>
-                                <div className='result_list_wrapper' data-aos="fade-left" data-aos-duration="500" data-aos-delay="200">
-                                    <ul className='result_list'>{zodiacLists}</ul>
+                            <div className='zodiac_description' data-aos="fade-right" data-aos-duration="500" data-aos-delay="100">
+                                <div className="title_row">
+                                    <h2 className='description_title'>About {zodiacData.name}</h2>
                                 </div>
-                                <div className='zodiac_description' data-aos="fade-right" data-aos-duration="500" data-aos-delay="100">
-                                    <div className="title_row">
-                                        <h2 className='description_title'>About {zodiacData.name}</h2>
-                                    </div>
-                                    <p className='description_paragraph'>{zodiacData.description}</p>
-                                </div>
+                                <p className='description_paragraph'>{zodiacData.description}</p>
                             </div>
                         </div>
-                    </>  
-                )}
+                    </div>
+                </>  
+            )}
             </div>
         </div>
     )
