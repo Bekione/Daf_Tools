@@ -21,14 +21,14 @@ const Health = () => {
     }
   }, [])
 
-  const { isLoading: imageLoading } = useQuery('Page_Images', fetchPageImages);
+  const { isLoading: imageLoading, error} = useQuery('Page_Images', fetchPageImages);
 
   return (
     <div className="health_wrapper page_body" data-aos="fade-down" data-aos-duration="700">
       <MobileTitle currentUrl={'/health'} />
       <div className='health_body_wrapper'>
         <div className='health_body'>
-          {!imageLoading ? <Form /> : <></>}
+          {!imageLoading && !error ? <Form /> : <></>}
           <HealthImage />
         </div>
       </div>
