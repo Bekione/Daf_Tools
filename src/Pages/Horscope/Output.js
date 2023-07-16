@@ -29,16 +29,10 @@ const Output = ({dateOfBirth}) => {
     let zodiacLists;
     const ageBody = document.querySelector('.page_body.age')
     let dateResults = calculateAge(dateOfBirth)
-    const zodiacData = findZodiac(dateOfBirth, zodiacSignsInfo);
+    const zodiacData = findZodiac(dateOfBirth, zodiacSignsInfo)
+    const dateProgressRatios = [76, 12, 4, 7, 24, 60, 60]
+    const dateResultLabels = ["Year", "Month", "Week", "Day", "Hour", "Minute", "Second"]
     
-
-    if(dateResults){
-        setInterval(() => {
-            dateResults = calculateAge(dateOfBirth)
-        }, 1000)
-    }
-
-
     if(zodiacData){
         if(isBrithDay(dateOfBirth)){
             hbdMessage = "🎉Happy Birth day, Wish you all the best!"
@@ -69,63 +63,34 @@ const Output = ({dateOfBirth}) => {
             return null
         })
     }
+
     return (
         <div className='page_output'>
             <div className="age_result_wrapper">
-                {zodiacData && (
-                    <>
-                        <div className='message_row'>
-                            <h1 className='hbd_message'>{hbdMessage}</h1>
-                        </div>
-                        <div className='title_row' data-aos="fade-up" data-aos-duration="500">
-                            <h2 className='title'>You have lived :</h2>
-                        </div>
-                        <div className="age_result">
-                            <div className="result_item" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="100">
-                                <div className="result_item_progress" style={{ '--progress': `${(100 * dateResults.years) / 76}%`, '--color': `${zodiacUiData[zodiacData.id -1].dark_color}` }}>
-                                    <h1>{dateResults.years}</h1>
-                                    <p>{([0, 1].includes(dateResults.years))? 'Year' : 'Years'}</p>
+            {zodiacData && (
+                <>
+                    <div className='message_row'>
+                        <h1 className='hbd_message'>{hbdMessage}</h1>
+                    </div>
+                    <div className='title_row' data-aos="fade-up" data-aos-duration="500">
+                        <h2 className='title'>You have lived :</h2>
+                    </div>
+                    <div className="age_result">
+                    {
+                        Object.keys(dateResults).map((result, index) => {
+                            return(
+                                <div className="result_item" key={index} data-aos="zoom-in" data-aos-duration="500" data-aos-delay={(100 + (index*150))}>
+                                    <div className="result_item_progress" style={{ '--progress': `${(100 * dateResults[result]) / dateProgressRatios[index]}%`, '--color': `${zodiacUiData[zodiacData.id -1].dark_color}` }}>
+                                        <h1>{dateResults[result]}</h1>
+                                        <p>{([0, 1].includes(dateResults[result]))? dateResultLabels[index] : `${dateResultLabels[index]}s`}</p>
+                                    </div>
                                 </div>
-                            </div>
-                            <div className="result_item" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="250">
-                                <div className="result_item_progress" style={{ '--progress': `${(100 * dateResults.months) / 12}%`, '--color': `${zodiacUiData[zodiacData.id -1].dark_color}` }}>
-                                    <h1>{dateResults.months}</h1>
-                                    <p>{([0, 1].includes(dateResults.months))? 'Month' : 'Months'}</p>
-                                </div>
-                            </div>
-                            <div className="result_item" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="400">
-                                <div className="result_item_progress" style={{ '--progress': `${(100 * dateResults.weeks) / 4}%`, '--color': `${zodiacUiData[zodiacData.id -1].dark_color}` }}>
-                                    <h1>{dateResults.weeks}</h1>
-                                    <p>{([0, 1].includes(dateResults.weeks))? 'Week' : 'Weeks'}</p>
-                                </div>
-                            </div>
-                            <div className="result_item" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="550">
-                                <div className="result_item_progress" style={{ '--progress': `${(100 * dateResults.days) / 7}%`, '--color': `${zodiacUiData[zodiacData.id -1].dark_color}` }}>
-                                    <h1>{dateResults.days}</h1>
-                                    <p>{([0, 1].includes(dateResults.days))? 'Day' : 'Days'}</p>
-                                </div>
-                            </div>
-                            <div className="result_item" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="700">
-                                <div className="result_item_progress" style={{ '--progress': `${(100 * dateResults.hours) / 24}%`, '--color': `${zodiacUiData[zodiacData.id -1].dark_color}` }}>
-                                    <h1>{dateResults.hours}</h1>
-                                    <p>{([0, 1].includes(dateResults.hours))? 'Hour' : 'Hours'}</p>
-                                </div>
-                            </div>
-                            <div className="result_item" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="850">
-                                <div className="result_item_progress" style={{ '--progress': `${(100 * dateResults.minutes) / 60}%`, '--color': `${zodiacUiData[zodiacData.id -1].dark_color}` }}>
-                                    <h1>{dateResults.minutes}</h1>
-                                    <p>{([0, 1].includes(dateResults.minutes))? 'Minute' : 'Minutes'}</p>
-                                </div>
-                            </div>
-                            <div className="result_item" data-aos="zoom-in" data-aos-duration="500" data-aos-delay="1000">
-                                <div className="result_item_progress" style={{ '--progress': `${(100 * dateResults.seconds) / 60}%`, '--color': `${zodiacUiData[zodiacData.id -1].dark_color}` }}>
-                                    <h1>{dateResults.seconds}</h1>
-                                    <p>{([0, 1].includes(dateResults.seconds))? 'Second' : 'Seconds'}</p>
-                                </div>
-                            </div>
-                        </div>
-                    </>
-                )}
+                            )
+                        })
+                    }
+                    </div>
+                </>
+            )}
             </div>
             <div className='zodiac_result_wrapper'>
                 {zodiacData && (
@@ -152,16 +117,16 @@ const Output = ({dateOfBirth}) => {
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            {
-                                                zodiacData.traits.good.map((data, index) => {
-                                                    return(
-                                                        <tr key={index}>
-                                                            <td data-label="+ve">{data}</td>
-                                                            <td data-label="-ve">{zodiacData.traits.bad[index]}</td>
-                                                        </tr>
-                                                    )
-                                                })
-                                            }
+                                        {
+                                            zodiacData.traits.good.map((data, index) => {
+                                                return(
+                                                    <tr key={index}>
+                                                        <td data-label="+ve">{data}</td>
+                                                        <td data-label="-ve">{zodiacData.traits.bad[index]}</td>
+                                                    </tr>
+                                                )
+                                            })
+                                        }
                                         </tbody>
                                     </table>
                                 </div>
