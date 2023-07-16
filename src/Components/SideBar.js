@@ -52,8 +52,9 @@ const SideBar = (props) => {
 
   const closeSidebarOnLinkClick = () => {
     if(window.innerWidth <= 500){
-      props.setIsOpen(!props.isOpen)
-      props.setShowOverlay(false)
+      props.toggleSidebar()
+      //props.setIsOpen(!props.isOpen)
+      // props.setShowOverlay(false)
     }
   }
 

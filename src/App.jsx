@@ -55,18 +55,18 @@ const App = () => {
 
   const [isOpen, setIsOpen] = useState(false);
   const [showOverlay, setShowOverlay] = useState(false)
-  const humMenu = document.querySelector('.header_menu')
+  
   const toggleSidebar = () => {
     if(!isOpen){
       setIsOpen(true)
       setTimeout(() => {
         setShowOverlay(true);
       }, 200)
-      humMenu.classList.add('active')
+      document.querySelector('.header_menu').classList.add('active')
     } else {
       setIsOpen(false)
       setShowOverlay(false)
-      humMenu.classList.remove('active')
+      document.querySelector('.header_menu').classList.remove('active')
     }
   }
 
