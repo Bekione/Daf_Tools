@@ -61,7 +61,7 @@ const App = () => {
       setIsOpen(true)
       setTimeout(() => {
         setShowOverlay(true);
-      }, 200)
+      }, 100)
       document.querySelector('.header_menu').classList.add('active')
     } else {
       setIsOpen(false)
