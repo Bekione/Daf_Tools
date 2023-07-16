@@ -35,7 +35,7 @@ function ImageSlider() {
   }
 
   return (
-    <div className='home_carousel'>
+    <div className='home_carousel' data-aos="fade-up" data-aos-duration="700">
       <div className='swiper-button-prev'></div>
       <div className='swiper-button-next'></div>
       <Swiper
