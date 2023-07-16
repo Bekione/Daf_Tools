@@ -12,16 +12,16 @@ import Select from '@mui/material/Select'
 import Loader from '../../Components/Loader'
 import FetchError from '../ErrorPages/FetchError'
 import { fetchPageImages } from '../../App'
-// import AOS from 'aos'
-// import 'aos/dist/aos.css'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 import './style.css'
 
 const Diet = () => {
   const [blood, setBlood] = useState('')
   
   useEffect(() => {
-    // AOS.init()
-    // AOS.refresh()
+    AOS.init()
+    AOS.refresh()
 
     document.title = 'Daf Tools | Diet Guide'
 
@@ -66,7 +66,7 @@ const Diet = () => {
   }   
 
   return (
-    <div className='page_body food_wrapper'>
+    <div className='page_body food_wrapper' data-aos="fade-down" data-aos-duration="700">
       <div className='food_header page_header'>
       <MobileTitle currentUrl={'/blooddiet'} classNm={'diet'} />
         <img src={getImagePath(headerFoodImage.imageResponse, 'BloodFood')} alt='Food and blood type' className='page_header_image food' />
@@ -98,7 +98,7 @@ const Diet = () => {
       </div>
       <div className='food_body' >
         <Info />
-        <div className='recommendation_result'>
+        <div className='recommendation_result' data-aos="fade-up" data-aos-duration="900">
           <div className='table_wrapper'>
             {
               (blood !== '') ? 

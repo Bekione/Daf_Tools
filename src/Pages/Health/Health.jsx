@@ -5,14 +5,14 @@ import HealthImage from './HealthImage'
 import Description from './Description'
 import MobileTitle from '../../Components/MobileTitle'
 import { fetchPageImages } from '../../App'
-// import AOS from 'aos'
-// import 'aos/dist/aos.css'
+import AOS from 'aos'
+import 'aos/dist/aos.css'
 import './style.css'
 
 const Health = () => {
   useEffect(() => {
-    // AOS.init()
-    // AOS.refresh()
+    AOS.init()
+    AOS.refresh()
 
     document.title = 'Daf Tools | Health'
 
@@ -24,7 +24,7 @@ const Health = () => {
   const { isLoading: imageLoading } = useQuery('Page_Images', fetchPageImages);
 
   return (
-    <div className="health_wrapper page_body">
+    <div className="health_wrapper page_body" data-aos="fade-down" data-aos-duration="700">
       <MobileTitle currentUrl={'/health'} />
       <div className='health_body_wrapper'>
         <div className='health_body'>

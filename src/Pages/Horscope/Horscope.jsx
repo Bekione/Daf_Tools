@@ -10,16 +10,16 @@ import { getImagePath } from '../Hook/imageFetcher'
 import Loader from '../../Components/Loader'
 import FetchError from '../ErrorPages/FetchError'
 import { fetchPageImages } from '../../App'
-// import AOS from "aos"
-//import "aos/dist/aos.css"
+import AOS from "aos"
+import "aos/dist/aos.css"
 import './style.css'
 
 const Personality = () => {
   const [dateOfBirth, setDateOfBirth] = useState('')
 
   useEffect(() => {
-    // AOS.init();
-    // AOS.refresh();
+    AOS.init()
+    AOS.refresh()
 
     document.title = 'Daf Tools | Age Horscope'
 
@@ -75,7 +75,7 @@ const Personality = () => {
 
   return (
     <div className='page_body age'>
-      <div className='page_header age'>
+      <div className='page_header age' data-aos="fade-down" data-aos-duration="700">
       <MobileTitle currentUrl={'/horscope'} classNm={'horscope'} />
         <img src={getImagePath(headerHorscopeImage.imageResponse, 'Horscope')} alt='page header zodiac' className='page_header_image age'/>
         <div className='date_input_wrapper'>
