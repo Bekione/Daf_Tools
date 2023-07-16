@@ -41,12 +41,12 @@ const About = () => {
 
   return (
     <div className='tools_about_wrapper'>
-      <h2 className='sub_title'>The Tools</h2>
+      <h2 className='sub_title' data-aos="fade-up" data-aos-duration="700">The Tools</h2>
       <div className='about_rows'>
       {
         aboutData.map((data, index) => {
           return(
-            <div className='about_row' key={`0${index}`}>
+            <div className='about_row' key={`0${index}`} data-aos={(index%2===0) ? "fade-right" : "fade-left"} data-aos-duration="700">
               <div className='hoverable_image_container'>
                 <HoverableImage src={data.imgPath} alt={data.name} key={index} />
               </div>
