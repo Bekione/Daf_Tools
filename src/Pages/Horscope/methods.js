@@ -4,23 +4,19 @@ const findZodiac = (date, signs) => {
     const dob = new Date(date);
     const month = dob.getMonth() + 1;
     const day = dob.getDate();
-    const inputDate = `${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`; //MM-DD format
+    const inputDate = new Date(`${new Date().getFullYear()}-${month.toString().padStart(2, '0')}-${day.toString().padStart(2, '0')}`) //YYYY-MM-DD format
 
-    console.log(inputDate)
-    for (const sign of signs) {
-        if (inputDate >= sign.startDate && inputDate <= sign.endDate) {
-            console.log(sign)
-            return sign;
-        }
-        else {
-            // console.log("start " + sign.startDate)
-            // console.log("end " + sign.endDate)
-            // console.log("not match");
+    for(const sign of signs){
+        const startDate = new Date(`${new Date().getFullYear()}-${sign.startDate}`)
+        const endDate = new Date(`${new Date().getFullYear()}-${sign.endDate}`)
+ 
+        if(inputDate >= startDate && inputDate <= endDate){
+            return sign
         }
     }
 
     return null;
-};
+}
 
 export  const calculateAge = (dob) => {
     const now = new Date();
