@@ -79,7 +79,7 @@ const Output = ({dateOfBirth}) => {
                     {
                         Object.keys(dateResults).map((result, index) => {
                             return(
-                                <div className="result_item" key={index} data-aos="zoom-in" data-aos-duration="500" data-aos-delay={(100 + (index*150))}>
+                                <div className="result_item" key={index} data-aos="zoom-in" data-aos-duration="500" data-aos-delay={(100 + (index*150))} title={"Assuming time of Birth is 00:00"}>
                                     <div className="result_item_progress" style={{ '--progress': `${(100 * dateResults[result]) / dateProgressRatios[index]}%`, '--color': `${zodiacUiData[zodiacData.id -1].dark_color}` }}>
                                         <h1>{dateResults[result]}</h1>
                                         <p>{([0, 1].includes(dateResults[result]))? dateResultLabels[index] : `${dateResultLabels[index]}s`}</p>
