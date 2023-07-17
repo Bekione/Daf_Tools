@@ -79,6 +79,9 @@
     overflow: auto;
     box-shadow: var(--layered-shadow);
 }
+.food_table_container::-webkit-scrollbar{
+    width: 10px !important;
+}
 .empty_msg{
     font-size: 1.1em;
     color: rgb(107, 106, 106);
