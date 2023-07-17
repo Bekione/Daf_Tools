@@ -34,7 +34,7 @@ const FoodTable = ({bloodType}) => {
     }
   }
   return (
-    <TableContainer component={Paper}  sx={{ maxHeight: 'calc(100vh - 200px)', borderRadius: '6px' }}>
+    <TableContainer component={Paper}  sx={{ maxHeight: 'calc(100vh - 200px)', borderRadius: '6px' }} className="food_table_container">
       <Table sx={[style, {minWidth: 650, position: 'relative', transition: 'var(--transition-03)'} ]} aria-label="simple table">
         <TableHead>
           <TableRow>
@@ -48,9 +48,9 @@ const FoodTable = ({bloodType}) => {
             (data[0].length !== 0) ?
             largestArr.map((row, index) => (
             <TableRow key={index} sx={{ '&:last-child td, &:last-child th': { border: 0 }, '&:nth-of-type(even)': {backgroundColor: '#ddd'}, transition: 'all 0.3s ease' }}>
-              <TableCell align="center">{data[0][index]}</TableCell>
-              <TableCell align="center">{data[1][index]}</TableCell>
-              <TableCell align="center">{data[2][index]}</TableCell>
+              <TableCell align="center">{(data[0][index]) ? data[0][index] : '-'}</TableCell>
+              <TableCell align="center">{(data[1][index]) ? data[1][index] : '-'}</TableCell>
+              <TableCell align="center">{(data[2][index]) ? data[2][index] : '-'}</TableCell>
             </TableRow>  
             ))
             :
