@@ -7,6 +7,8 @@
     height: calc(100vh - var(--header-height));
     background: linear-gradient(rgba(88, 230, 249, 0.7), rgba(4, 52, 76, 0.7));
     background-size: cover;
+    background-repeat: no-repeat;
+    /* background-position: center center; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -105,9 +107,12 @@
     }
 }
 @media only screen and (max-width:500px){
+    .notfound{
+        background-position-x: 15%;
+    }
     .notfound-404 h1{
         margin: auto;
-        font-size:8em;
+        font-size: 8em;
         letter-spacing: 6px;
     }
     .notfound p{
