@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react' 
 import { useQuery, useQueryClient } from 'react-query'
+import { Helmet } from 'react-helmet'
 import Output from './Output'
 import MobileTitle from '../../Components/MobileTitle'
 import { DemoContainer } from '@mui/x-date-pickers/internals/demo'
@@ -75,6 +76,9 @@ const Personality = () => {
 
   return (
     <div className='page_body age'>
+      <Helmet>
+        <meta name="description" content="See your zodiac sign and horscope information based on your date of birth." />
+      </Helmet>
       <div className='page_header age' data-aos="fade-down" data-aos-duration="700">
       <MobileTitle currentUrl={'/horscope'} classNm={'horscope'} />
         <img src={getImagePath(headerHorscopeImage.imageResponse, 'Horscope')} alt='page header zodiac' className='page_header_image age'/>

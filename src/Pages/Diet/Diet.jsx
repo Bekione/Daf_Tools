@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react'
 import { useQuery, useQueryClient } from 'react-query'
+import { Helmet } from 'react-helmet'
 import {getImagePath} from '../Hook/imageFetcher'
 import Info from './Info'
 import Table from './Table'
 import MobileTitle from '../../Components/MobileTitle'
-import Box from '@mui/material/Box';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
+import Box from '@mui/material/Box'
+import InputLabel from '@mui/material/InputLabel'
+import MenuItem from '@mui/material/MenuItem'
+import FormControl from '@mui/material/FormControl'
 import Select from '@mui/material/Select'
 import Loader from '../../Components/Loader'
 import FetchError from '../ErrorPages/FetchError'
@@ -67,6 +68,9 @@ const Diet = () => {
 
   return (
     <div className='page_body food_wrapper' data-aos="fade-down" data-aos-duration="700">
+      <Helmet>
+        <meta name="description" content="Get recommended a list of good, normal and bad foods based on you blood type" />
+      </Helmet>
       <div className='food_header page_header'>
       <MobileTitle currentUrl={'/blooddiet'} classNm={'diet'} />
         <img src={getImagePath(headerFoodImage.imageResponse, 'BloodFood')} alt='Food and blood type' className='page_header_image food' />
