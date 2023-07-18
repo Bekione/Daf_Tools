@@ -1,5 +1,77 @@
 @import url(../Util/util.css);
 
+/* 404 page styles */
+
+.notfound{
+    width: 100%;
+    height: calc(100vh - var(--header-height));
+    background: linear-gradient(rgba(88, 230, 249, 0.7), rgba(4, 52, 76, 0.7));
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+}
+.notfound .notfound-404{
+    text-align: center;
+    color:#fff;
+    text-transform:uppercase;
+    padding: 1rem;
+    height: fit-content;
+}
+.notfound-404 h1{
+    width: fit-content;
+    margin: auto;
+    margin-block: -2rem;
+    font-family: var(--font-header);
+    font-size:16em;
+    font-weight:900;
+    letter-spacing: 10px;
+    text-shadow: 0 0 10px #686666, 0 0 20px #fff, 0 0 30px #fff, 0 0 40px var(--clr-primary), 0 0 70px var(--clr-primary), 0 0 80px var(--clr-primary-hovr), 0 0 100px var(--clr-primary-hovr), 0 0 150px var(--clr-primary-hovr);
+}
+.notfound-404 p{
+    font-family: 'RobotoLight', sans-serif;
+    font-size:1.1em;
+    font-weight:thin;
+    line-height: 1.6em;
+}
+.buttons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    padding: 1rem;
+}
+.buttons .home-btn,
+.buttons .sourcecode-btn{
+    display:inline-block;
+    width: 195px;
+    font-weight:thin;
+    text-decoration:none;
+    background-color:transparent;
+    border:2px solid transparent;
+    text-transform:uppercase;
+    text-align: center;
+    padding-block: 13px;
+    font-size:1.1em;
+    border-radius:40px;
+    -webkit-transition: var(--transition-02);
+    transition: var(--transition-02);
+}
+.buttons .home-btn:hover,
+.buttons .sourcecode-btn:hover{
+    opacity:.9
+}
+.buttons .home-btn{
+    color: #fff;
+    background:rgba(88, 230, 249, 1)
+}
+.buttons .sourcecode-btn{
+    border:2px solid rgba(255,255,255,.9);
+    color:rgba(255,255,255,.9)
+}
+
 /* 
  ####### Error Pages Styles #######
 */
@@ -26,7 +98,25 @@
     color: red;
 }
 
-@media only screen and (max-width: 500px){
+/* Media queries */
+@media only screen and (max-width:767px){
+    .notfound-404 h1{
+        font-size:10em;
+    }
+}
+@media only screen and (max-width:500px){
+    .notfound-404 h1{
+        margin: auto;
+        font-size:8em;
+        letter-spacing: 6px;
+    }
+    .notfound p{
+        font-size: 1em;
+    }
+    .buttons .home-btn,
+    .buttons .sourcecode-btn{
+        font-size: .9em;
+    }
     .daf_error_message_wrapper{
         margin-inline: 2rem;
     }
