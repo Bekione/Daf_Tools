@@ -23,12 +23,6 @@ const Diet = () => {
   useEffect(() => {
     AOS.init()
     AOS.refresh()
-
-    document.title = 'Daf Tools | Diet Guide'
-
-    return () => {
-      document.title = 'Daf Tools'
-    }
   }, [])
 
   const queryClient = useQueryClient()
@@ -68,8 +62,12 @@ const Diet = () => {
 
   return (
     <div className='page_body food_wrapper' data-aos="fade-down" data-aos-duration="700">
-      <Helmet>
+      <Helmet 
+      defaultTitle="DAF Tools"
+      defaultDescription="Web app project made for intenship program | MERN stack project | Includes - Health tracker, Food recommendation, Horscope/Zodiac finder"
+      >
         <meta name="description" content="Get recommended a list of good, normal and bad foods based on you blood type" />
+        <title>Daf Tools | Diet Guide</title>
       </Helmet>
       <div className='food_header page_header'>
       <MobileTitle currentUrl={'/blooddiet'} classNm={'diet'} />

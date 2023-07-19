@@ -21,12 +21,6 @@ const Personality = () => {
   useEffect(() => {
     AOS.init()
     AOS.refresh()
-
-    document.title = 'Daf Tools | Age Horscope'
-
-    return () => {
-      document.title = 'Daf Tools'
-    }
   }, [])
 
   const queryClient = useQueryClient()
@@ -76,8 +70,12 @@ const Personality = () => {
 
   return (
     <div className='page_body age'>
-      <Helmet>
+      <Helmet 
+      defaultTitle="DAF Tools"
+      defaultDescription="Web app project made for intenship program | MERN stack project | Includes - Health tracker, Food recommendation, Horscope/Zodiac finder"
+      >
         <meta name="description" content="See your zodiac sign and horscope information based on your date of birth." />
+        <title>Daf Tools | Horscope finder</title>
       </Helmet>
       <div className='page_header age' data-aos="fade-down" data-aos-duration="700">
       <MobileTitle currentUrl={'/horscope'} classNm={'horscope'} />

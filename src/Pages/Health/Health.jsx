@@ -14,20 +14,18 @@ const Health = () => {
   useEffect(() => {
     AOS.init()
     AOS.refresh()
-
-    document.title = 'Daf Tools | Health'
-
-    return () => {
-      document.title = 'Daf Tools'
-    }
   }, [])
 
   const { isLoading: imageLoading, error} = useQuery('Page_Images', fetchPageImages);
 
   return (
     <div className="health_wrapper page_body" data-aos="fade-down" data-aos-duration="700">
-      <Helmet>
+      <Helmet 
+      defaultTitle="DAF Tools"
+      defaultDescription="Web app project made for intenship program | MERN stack project | Includes - Health tracker, Food recommendation, Horscope/Zodiac finder"
+      >
         <meta name="description" content="Track your health, daily water intake amount and body mass index based on your weight and height." />
+        <title>Daf Tools | Health Tracker</title>
       </Helmet>
       <MobileTitle currentUrl={'/health'} />
       <div className='health_body_wrapper'>
