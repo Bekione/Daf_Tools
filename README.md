@@ -24,9 +24,9 @@ A web app that contains pages/tools that are;-
 - The app first loads and cache data 
 
 ## Dependancies (with installation commands)
-* Material UI -> `npm install --legacy-peer-deps @mui/icons-material @mui/material @emotion/styled @emotion/react @mui/x-date-pickers dayjs`
+* Material UI -> `npm i --legacy-peer-deps @mui/icons-material @mui/material @emotion/styled @emotion/react @mui/x-date-pickers dayjs`
 * Axios -> `npm i axios`
-* * React-Query -> `npm i aos`
+* React-Query -> `npm i aos`
 * Helmet -> `npm i react-helmet`
 * AOS -> `npm i aos`
 * Swiper -> `npm i aos`
