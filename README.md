@@ -29,7 +29,7 @@ A web app that contains pages/tools that are;-
 * React-Query -> `npm i aos`
 * Helmet -> `npm i react-helmet`
 * AOS -> `npm i aos`
-* Swiper -> `npm i aos`
+* Swiper -> `npm i swiper`
 
 
 ## Running the Project
